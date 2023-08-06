@@ -32,7 +32,9 @@ _The above command will start the docker with all required parameters. Please ch
 	
 6. The designed model(JSON Format) is in the **arrows.app_final_model** folder.
 
-7. Run following python script to all all requite files to Neo4j Server. 
+7. Run following python script to load all requite files to Neo4j Server.
+
+	*Note - As mentioned above in point number one, all the files that are required to be loaded in neo4j, must be first copied in 'import folder' created in step 1.
 
   ```sh
   Neo4j_demo.py
