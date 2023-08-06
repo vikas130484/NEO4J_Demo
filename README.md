@@ -25,7 +25,10 @@ _The above command will start the docker with all required parameters. Please ch
 
 3. Now before loading data into Neo4j, we must model the data set.
 
-4. Navigate to [https://arrows.app](https://arrows.app) & design the Graph model based on the given data set.  
+4. Navigate to [https://arrows.app](https://arrows.app) & design the Graph model based on the given data set.
+
+5. Data set used for this demo is at the following location
+	[https://gist.github.com/maruthiprithivi/10b456c74ba99a35a52caaffafb9d3dc](https://gist.github.com/maruthiprithivi/10b456c74ba99a35a52caaffafb9d3dc) 
 	
 	
 
