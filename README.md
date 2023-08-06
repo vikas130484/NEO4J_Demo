@@ -40,4 +40,4 @@ _The above command will start the docker with all required parameters. Please ch
   
 _Note - As mentioned above in point number one, all the files that are required to be loaded in neo4j, must be first copied in 'import folder' created in step 1_
 
-8. Few sample exploratory queries are provided in **'Cypher-sample_exploratory_queries'** folder.
+8. Sample exploratory queries are provided in **'Cypher-sample_exploratory_queries'** folder.
