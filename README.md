@@ -37,14 +37,3 @@ _The above command will start the docker with all required parameters. Please ch
   ```sh
   Neo4j_demo.py
   ```
-  
-  	_Note - As mentioned above in point number one, all the files that are required to be loaded in neo4j, must be first copied in 'import folder' created in step 1_
-
-
- 
-	
-	
-
-  
-
- 
