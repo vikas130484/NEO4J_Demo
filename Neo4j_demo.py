@@ -1,7 +1,6 @@
 from neo4j import GraphDatabase
 
-
-class Example:
+class neo4j_data_load:
 
     def __init__(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
@@ -16,6 +15,7 @@ class Example:
 
     @staticmethod
     def execute_queries(tx):
+
         csv_path_edu = "file:///sng_education.csv"
         csv_path_work = "file:///sng_work.csv"
         csv_path_transaction = "file:///sng_transaction.csv"
@@ -27,7 +27,7 @@ class Example:
                         MERGE (country:Country{country: row.country})
                         MERGE (person)-[:STUDIED_AT]->(institute)
                         MERGE (institute)-[:SITUATED_IN]->(country)"""
-        q_edu = q_edu.replace('{filepath}', csv_path_edu)
+        q_edu = q_edu.replace('{filepath}',csv_path_edu)
 
         q_work = """LOAD CSV WITH HEADERS FROM '{filepath}' AS row
                         MERGE (person:Person {name: row.name, passportnumber:row.passportnumber})
@@ -35,15 +35,16 @@ class Example:
                         MERGE (country:Country{country: row.country})
                         MERGE (person)-[:WORKED_AT]->(organization)
                         MERGE (organization)-[:SITUATED_IN]->(country)"""
-        q_work = q_work.replace('{filepath}', csv_path_work)
+        q_work = q_work.replace('{filepath}',csv_path_work)
 
+        
         q_transaction = """LOAD CSV WITH HEADERS FROM '{filepath}' AS row
                         MERGE (person:Person {name: row.name, passportnumber:row.passportnumber})
                         MERGE (transaction:Transaction {cardnumber: row.cardnumber,transactiondate:row.transactiondate,merchant:row.merchant,amount:row.amount})
                         MERGE (country:Country{country: row.country})
                         MERGE (person)-[:PERFORMED]->(transaction)
                         MERGE (transaction)-[:PERFORMED_IN]->(country)"""
-        q_transaction = q_transaction.replace('{filepath}', csv_path_transaction)
+        q_transaction = q_transaction.replace('{filepath}',csv_path_transaction)
 
         q_trips = """LOAD CSV WITH HEADERS FROM '{filepath}' AS row
                         MERGE (person:Person {name: row.name, passportnumber:row.passportnumber})
@@ -53,17 +54,17 @@ class Example:
                         MERGE (person)-[:TRAVELLED_FROM{departuredate:row.departuredate}]->(country_dep)
                         MERGE (person)-[:TRAVELLED_TO{arrivaldate:row.arrivaldate}]->(country_arr)
                         MERGE (person)-[:CITIZEN_OF]->(country_citizen)"""
-        q_trips = q_trips.replace('{filepath}', csv_path_trips)
+        q_trips = q_trips.replace('{filepath}',csv_path_trips)
+        
+        result1 = tx.run(q_edu)
+        result2 = tx.run(q_work)
+        result3 = tx.run(q_transaction)
+        result4 = tx.run(q_trips)
 
-        result = tx.run(q_edu)
-        result = tx.run(q_work)
-        result = tx.run(q_transaction)
-        result = tx.run(q_trips)
-
-        return str(result)
+        return str(result1)+str(result2)+str(result3)+str(result4)
 
 
 if __name__ == "__main__":
-    task = Example("neo4j://localhost:7687", "neo4j", "password")
+    task = neo4j_data_load("neo4j://localhost:7687", "neo4j", "password")
     task.run()
     task.close()
