@@ -1,5 +1,6 @@
 
-<!-- NEO4J_Demo -->
+<!-- Neo4j Demo -->
+## Neo4j Demo
 
 **Technical Assignment**
  
