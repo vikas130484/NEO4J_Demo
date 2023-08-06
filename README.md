@@ -23,5 +23,12 @@ _The above command will start the docker with all required parameters. Please ch
   http://localhost:7474/browser/
   ```
 
+3. Now before loading data into Neo4j, we must model the data set.
+
+4. Navigate to [https://arrows.app](https://arrows.app) & design the Graph model based on the given data set.  
+	
+	
+
+  
 
  
