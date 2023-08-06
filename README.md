@@ -30,6 +30,8 @@ _The above command will start the docker with all required parameters. Please ch
 5. Data set used for this demo is at the following location
 	[https://gist.github.com/maruthiprithivi/10b456c74ba99a35a52caaffafb9d3dc](https://gist.github.com/maruthiprithivi/10b456c74ba99a35a52caaffafb9d3dc) 
 	
+6. The designed model is in the **arrows.app_final_model** folder. 
+	
 	
 
   
