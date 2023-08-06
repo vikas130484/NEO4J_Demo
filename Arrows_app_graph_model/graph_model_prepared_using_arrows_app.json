@@ -1,0 +1,234 @@
+{
+  "nodes": [
+    {
+      "id": "n0",
+      "position": {
+        "x": -288.08308829021524,
+        "y": -29.431333406643603
+      },
+      "caption": "",
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "name": "",
+        "passportnumber": ""
+      },
+      "style": {}
+    },
+    {
+      "id": "n1",
+      "position": {
+        "x": 80.2358465591023,
+        "y": -397.7502682559611
+      },
+      "caption": "",
+      "labels": [
+        "Institute"
+      ],
+      "properties": {
+        "nameofinstitution": "",
+        "course": "",
+        "startyear": "",
+        "endyear": ""
+      },
+      "style": {}
+    },
+    {
+      "id": "n2",
+      "position": {
+        "x": 537.3076809477988,
+        "y": 232.5949592715881
+      },
+      "caption": "",
+      "labels": [
+        "Country"
+      ],
+      "properties": {
+        "country": ""
+      },
+      "style": {}
+    },
+    {
+      "id": "n3",
+      "position": {
+        "x": 27.3346893699416,
+        "y": 353.25423193608003
+      },
+      "caption": "",
+      "labels": [
+        "Organization"
+      ],
+      "properties": {
+        "nameoforganization": "",
+        "designation": "",
+        "startyear": "",
+        "endyear": ""
+      },
+      "style": {}
+    },
+    {
+      "id": "n4",
+      "position": {
+        "x": 466.3613567219314,
+        "y": -222.56867832197358
+      },
+      "caption": "",
+      "labels": [
+        "Transaction"
+      ],
+      "properties": {
+        "cardnumber": "",
+        "transactiondate": "",
+        "merchant": "",
+        "amount": ""
+      },
+      "style": {}
+    }
+  ],
+  "relationships": [
+    {
+      "id": "n0",
+      "fromId": "n0",
+      "toId": "n1",
+      "type": "STUDIED_AT",
+      "properties": {},
+      "style": {
+        "detail-position": "inline"
+      }
+    },
+    {
+      "id": "n1",
+      "fromId": "n1",
+      "toId": "n2",
+      "type": "SITUATED_IN",
+      "properties": {},
+      "style": {
+        "detail-position": "inline"
+      }
+    },
+    {
+      "id": "n2",
+      "fromId": "n0",
+      "toId": "n3",
+      "type": "WORKED_AT",
+      "properties": {},
+      "style": {
+        "detail-position": "inline"
+      }
+    },
+    {
+      "id": "n3",
+      "fromId": "n3",
+      "toId": "n2",
+      "type": "SITUATED_IN",
+      "properties": {},
+      "style": {
+        "detail-position": "inline"
+      }
+    },
+    {
+      "id": "n4",
+      "fromId": "n0",
+      "toId": "n2",
+      "type": "CITIZEN_OF",
+      "properties": {},
+      "style": {
+        "detail-position": "above"
+      }
+    },
+    {
+      "id": "n5",
+      "fromId": "n4",
+      "toId": "n2",
+      "type": "PERFORMED_IN",
+      "properties": {},
+      "style": {
+        "detail-position": "inline"
+      }
+    },
+    {
+      "id": "n6",
+      "fromId": "n0",
+      "toId": "n4",
+      "type": "PERFORMED",
+      "properties": {},
+      "style": {
+        "detail-position": "inline"
+      }
+    },
+    {
+      "id": "n7",
+      "fromId": "n0",
+      "toId": "n2",
+      "type": "TRAVELLED_TO",
+      "properties": {
+        "arrivaldate": ""
+      },
+      "style": {}
+    },
+    {
+      "id": "n8",
+      "fromId": "n0",
+      "toId": "n2",
+      "type": "TRAVELLED_FROM",
+      "properties": {
+        "departuredate": ""
+      },
+      "style": {}
+    }
+  ],
+  "style": {
+    "font-family": "Nunito Sans",
+    "background-color": "#F2F2F2",
+    "background-image": "",
+    "background-size": "100%",
+    "node-color": "#4C8EDA",
+    "border-width": 0,
+    "border-color": "#000000",
+    "radius": 75,
+    "node-padding": 5,
+    "node-margin": 2,
+    "outside-position": "auto",
+    "node-icon-image": "",
+    "node-background-image": "",
+    "icon-position": "inside",
+    "icon-size": 64,
+    "caption-position": "inside",
+    "caption-max-width": 200,
+    "caption-color": "#ffffff",
+    "caption-font-size": 20,
+    "caption-font-weight": "normal",
+    "label-position": "inside",
+    "label-display": "bare",
+    "label-color": "#ffffff",
+    "label-background-color": "#848484",
+    "label-border-color": "#848484",
+    "label-border-width": 3,
+    "label-font-size": 20,
+    "label-padding": 5,
+    "label-margin": 4,
+    "directionality": "directed",
+    "detail-position": "above",
+    "detail-orientation": "parallel",
+    "arrow-width": 3,
+    "arrow-color": "#848484",
+    "margin-start": 5,
+    "margin-end": 5,
+    "margin-peer": 20,
+    "attachment-start": "normal",
+    "attachment-end": "normal",
+    "relationship-icon-image": "",
+    "type-color": "#848484",
+    "type-background-color": "#F2F2F2",
+    "type-border-color": "#848484",
+    "type-border-width": 0,
+    "type-font-size": 21,
+    "type-padding": 5,
+    "property-position": "outside",
+    "property-alignment": "colon",
+    "property-color": "#848484",
+    "property-font-size": 20,
+    "property-font-weight": "normal"
+  }
+}
