@@ -1,0 +1,39 @@
+Queries
+
+1. Query for most popular country which most persons travelled to
+Query: 
+MATCH (person:Person)-[:TRAVELLED_TO]->(country:Country)
+WITH country, COUNT(person) AS numberOfTravelers
+ORDER BY numberOfTravelers DESC
+LIMIT 1
+RETURN country.country AS popularCountry, numberOfTravelers
+
+2. Query to Find the top 5 countries with the highest number of travelers
+Query:
+MATCH (person:Person)-[:TRAVELLED_TO]->(country:Country)
+WITH country, COUNT(person) AS numberOfTravelers
+ORDER BY numberOfTravelers DESC
+LIMIT 5
+RETURN country.country AS countryName, numberOfTravelers
+
+3. Query to Find Average spend of all persons
+Query:
+MATCH (person:Person)-[:PERFORMED]->(transaction:Transaction)
+WITH person, TOFLOAT(REPLACE(transaction.amount, '$', '')) AS amount
+RETURN person.name AS personName, AVG(amount) AS averageSpend
+
+4. Query to find who all attended different insitutions
+Query:
+MATCH (person:Person)-[:STUDIED_AT]->(institute:Institute)
+WITH person, COLLECT(institute) AS institutes
+WHERE SIZE(institutes) > 1
+UNWIND institutes AS commonInstitute
+RETURN commonInstitute.nameofinstitution AS commonInstituteName, COLLECT(DISTINCT person.name) AS personsAttended
+
+5. Query to find the most common merchant and country for transaction
+Query:
+MATCH (transaction:Transaction)-[:PERFORMED_IN]->(country:Country)
+WITH transaction.merchant AS merchant, country.country AS countryName, COLLECT(transaction) AS transactions
+WHERE SIZE(transactions) > 1
+RETURN merchant AS commonMerchant, COLLECT(countryName) AS countriesPerformed
+
